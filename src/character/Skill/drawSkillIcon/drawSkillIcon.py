@@ -1,4 +1,5 @@
 import pygame
+from src.const import ImagePath
 
 
 class DrawSkillButton:
@@ -6,4 +7,4 @@ class DrawSkillButton:
         pass
 
     def draw_button_skill(self):
-        return pygame.image.load('src/character/Skill/drawSkillIcon/skillImageIcon/img.png')
+        return pygame.image.load(ImagePath.magicPocox)

@@ -3,6 +3,7 @@ from src.character.RedyPlayer import Player
 from src.character.Skill.drawSkillIcon.drawSkillIcon import DrawSkillButton
 from src.character.control.control import Controls
 from src.character.Skill.useSkill.useSkill import UseSkill
+from src.const import ImagePath
 
 
 def word(program_name, runner):
@@ -11,7 +12,7 @@ def word(program_name, runner):
 
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     pygame.display.set_caption(program_name)
-    background_image = pygame.image.load('static/image/af.png')
+    background_image = pygame.image.load(ImagePath.backgroundImage)
 
     screen_width = screen.get_width()
 

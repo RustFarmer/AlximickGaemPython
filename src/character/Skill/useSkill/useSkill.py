@@ -1,6 +1,7 @@
 import pygame
 from src.character.Skill.MovedSkill import moved_skill
 from src.character.Skill.DrawUsedSkill.DrawSkillUsed import draw_skill
+from src.const import ImagePath
 
 
 class UseSkill:
@@ -12,7 +13,7 @@ class UseSkill:
         self.skill_cooldown = 500
         self.last_skill_use_time = 0
 
-        self.fer_bol = pygame.image.load("src/character/Skill/DrawUsedSkill/skillImageUsed/img.png")
+        self.fer_bol = pygame.image.load(ImagePath.skillImageFireball)
         self.skill_y = player_y + 30 - self.fer_bol.get_height() // 2
 
     def update(self, screen, mouse_pressed, mouse_pos, obj_blit, player_x, screen_width):
