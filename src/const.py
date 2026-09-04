@@ -9,11 +9,10 @@ def get_absolute_path() -> Path:
 file_path = get_absolute_path()
 print(file_path)
 
-
 @dataclass
 class FilePath:
-    settingsWordData_json_file_Path: str = f"{file_path}\\word\\settingsWordData\\settingsWordData.json"
-    settingsScreenData_json_file_path: str = f'{file_path.parent}\\screenData\\settingsScreen.json'
+    settingsWordData_json_file_Path: str = f"{file_path}/word/settingsWordData/settingsWordData.json"
+    settingsScreenData_json_file_path: str = f'{file_path.parent}/screenData/settingsScreen.json'
 
 
 @dataclass
