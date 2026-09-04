@@ -38,19 +38,15 @@ class getSettings:
 
         program_dict = {"program_name": self.program_name}
 
-        self.size_screen_width = self.settings_data[JsonKey.size_program_width]
-        self.size_screen_height = self.settings_data[JsonKey.size_program_height]
+        self.size_screen_width = self.settings_data.get(JsonKey.size_program_width, "")
+        self.size_screen_height = self.settings_data.get(JsonKey.size_program_height, "")
 
         if [self.size_screen_width, self.size_screen_height] != ["default", "default"]:
             if self.size_screen_width == "default":
                 program_dict["width"] = width
-                print(program_dict, "lk3h4p6o=-------------------------g832yu0")
 
             if self.size_screen_width == "default":
                 program_dict["height"] = height
-
-            print(program_dict, "lk3h4p6og832yu0")
-            return program_dict
 
         return {
             "program_name": self.program_name,
