@@ -7,7 +7,6 @@ def get_absolute_path() -> Path:
 
 
 file_path = get_absolute_path()
-print(file_path)
 
 
 @dataclass

@@ -32,8 +32,6 @@ class getSettings:
         height = height_screen
         self.settings_data: dict = self.__load_settings_screen__()
 
-        print(self.settings_data)
-
         self.program_name = self.settings_data.get(JsonKey.program_name, '')
 
         program_dict = {"program_name": self.program_name}

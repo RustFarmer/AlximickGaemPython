@@ -2,19 +2,12 @@ import pygame
 from src.character.RedyPlayer import Player
 from src.character.Skill.drawSkillIcon.drawSkillIcon import DrawSkillButton
 from src.character.control.control import Controls
-from src.character.Skill.DrawUsedSkill.DrawSkillUsed import draw_skill
-from src.character.Skill.MovedSkill import moved_skill
 from src.character.Skill.useSkill.useSkill import UseSkill
+
 
 def word(program_name, runner):
     x = 100
     y = 500
-    skill_x = None
-    skill_active = False
-    skill_speed = 10
-
-    fer_bol = pygame.image.load("src/character/Skill/DrawUsedSkill/skillImageUsed/img.png")
-    skill_y = y + 30 - fer_bol.get_height() // 2
 
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     pygame.display.set_caption(program_name)
@@ -22,10 +15,13 @@ def word(program_name, runner):
 
     screen_width = screen.get_width()
 
+    skill = UseSkill(y)
+
     while runner:
         pressed = pygame.key.get_pressed()
         mouse_pressed = pygame.mouse.get_pressed()
         mouse_x, mouse_y = pygame.mouse.get_pos()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 runner = False
@@ -35,14 +31,6 @@ def word(program_name, runner):
         obj_blit = screen.blit(DrawSkillButton().draw_button_skill(), (1800, 900))
         Player().draw_player(screen, (255, 100, 34), x, y)
 
-        if mouse_pressed[0] and obj_blit.collidepoint(mouse_x, mouse_y) and not skill_active:
-            skill_active = True
-            skill_x = x
-
-        if skill_active:
-            skill_x = moved_skill(skill_x, skill_speed)
-            if skill_x > screen_width:
-                skill_active = False
-            draw_skill(screen, fer_bol, skill_x, skill_y)
+        skill.update(screen, mouse_pressed, (mouse_x, mouse_y), obj_blit, x, screen_width)
 
         pygame.display.flip()
